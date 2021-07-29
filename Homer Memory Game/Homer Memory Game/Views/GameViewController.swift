@@ -19,6 +19,9 @@ class GameViewController: UIViewController {
     var gridSize: (Int, Int)? = (5,2)
 
     private var cardList = [Card]()
+
+    private var previouslySelectedIndex: IndexPath?
+    private let gameViewPresenter = GameViewPresenter()
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
                                              bottom: 50.0,
@@ -29,7 +32,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureCardList()
+        guard let gridSize = gridSize else { return }
+        self.cardList = gameViewPresenter.configureCardListWithGridSize(gridSize)
         setCollectionView()
     }
 
@@ -41,46 +45,40 @@ class GameViewController: UIViewController {
         collectionView.isScrollEnabled = false
     }
 
-    private func configureCardList() {
-        /*
-         Step 1: Figure out how many unique cards are required
-         Step 2: Randomly choose that many unique cards
-         Step 3: Randomly distribute the cards into a list
-         Step 4: Save that matrix and send it to the collection view
-         */
-        guard let gridSize = gridSize else { return }
-        let uniqueCardCount = (gridSize.0 * gridSize.1)/2
-
-        var cardTypes = Card.allCases
-
-        for _ in 0..<uniqueCardCount {
-            let randomCardIndex = Int.random(in: 0..<cardTypes.count)
-            let chosenCardType = cardTypes[randomCardIndex]
-            cardTypes.remove(at: randomCardIndex)
-            self.cardList += [chosenCardType, chosenCardType]
-        }
-
-        self.cardList.shuffle()
-    }
-
     // MARK: - IBActions
 
     @IBAction func clickBackButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
 }
 
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell,
+              let cardType = cell.cardType else { return }
+        cell.isFlipped = true
+
+        var previousCell = CardCollectionViewCell()
+        if let previousIndex = previouslySelectedIndex,
+           let previousSelectedCell = collectionView.cellForItem(at: previousIndex) as? CardCollectionViewCell {
+            previousCell = previousSelectedCell
+        }
+
+        switch gameViewPresenter.cardWasSelected(cardType) {
+        case true:
+            cell.isMatched = true
+            previousCell.isMatched = true
+        case false:
+            cell.isFlipped = false
+            previousCell.isFlipped = false
+        default:
+            previouslySelectedIndex = indexPath
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        guard let gridSize = gridSize else { return 0 }
+        return gridSize.0 * gridSize.1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

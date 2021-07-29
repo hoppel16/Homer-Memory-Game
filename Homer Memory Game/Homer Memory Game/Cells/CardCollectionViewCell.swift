@@ -15,4 +15,25 @@ class CardCollectionViewCell: UICollectionViewCell {
             textLabel.text = cardType?.rawValue
         }
     }
+
+    var isFlipped: Bool = false {
+        didSet {
+            if isFlipped {
+                textLabel.textColor = .red
+                self.isUserInteractionEnabled = false
+            } else {
+                textLabel.textColor = .black
+                self.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
+    var isMatched: Bool = false {
+        didSet {
+            if isMatched {
+                textLabel.textColor = .purple
+                self.isUserInteractionEnabled = false
+            }
+        }
+    }
 }
