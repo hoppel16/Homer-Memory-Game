@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
 
     var gridSize: (Int, Int)? = (5,2)
 
+    private var cardList = [Card]()
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
                                              bottom: 50.0,
@@ -28,6 +29,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureCardList()
         setCollectionView()
     }
 
@@ -39,13 +41,26 @@ class GameViewController: UIViewController {
         collectionView.isScrollEnabled = false
     }
 
-    private func configureCardMatrix() {
+    private func configureCardList() {
         /*
          Step 1: Figure out how many unique cards are required
-         Step 2: Randomly choice that many unique cards
-         Step 3: Randomly distribute the cards into a matrix
+         Step 2: Randomly choose that many unique cards
+         Step 3: Randomly distribute the cards into a list
          Step 4: Save that matrix and send it to the collection view
          */
+        guard let gridSize = gridSize else { return }
+        let uniqueCardCount = (gridSize.0 * gridSize.1)/2
+
+        var cardTypes = Card.allCases
+
+        for _ in 0..<uniqueCardCount {
+            let randomCardIndex = Int.random(in: 0..<cardTypes.count)
+            let chosenCardType = cardTypes[randomCardIndex]
+            cardTypes.remove(at: randomCardIndex)
+            self.cardList += [chosenCardType, chosenCardType]
+        }
+
+        self.cardList.shuffle()
     }
 
     // MARK: - IBActions
@@ -74,7 +89,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             fatalError("Failed to set cell as CardCollectionViewCell")
         }
 
-        cell.cardType = Card.Horse
+        cell.cardType = self.cardList[indexPath.row]
         return cell
     }
 }
@@ -83,7 +98,6 @@ extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
           guard let gridSize = gridSize else {
-              print("Failed to get cell size")
               return collectionView.contentSize
           }
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1) + 1)
@@ -94,7 +108,6 @@ extension GameViewController: UICollectionViewDelegateFlowLayout {
         let availableHeight = collectionView.frame.height - paddingSpaceHeight
         let heightPerCard = availableHeight/CGFloat(gridSize.1)
 
-        print("Set cell size successfully")
         return CGSize(width: widthPerCard, height: heightPerCard)
     }
 }

@@ -7,8 +7,15 @@
 
 import Foundation
 
-enum Card {
+enum Card: String, CaseIterable {
     case GhostDog
     case Horse
     case GarbageMan
+    case Spider
+    case Cat
+    case Bat
+    case Pig
+    case Hen
+    case Cow
+    case Dragon
 }

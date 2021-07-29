@@ -12,7 +12,7 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     var cardType: Card? {
         didSet {
-            textLabel.text = "Set"
+            textLabel.text = cardType?.rawValue
         }
     }
 }
