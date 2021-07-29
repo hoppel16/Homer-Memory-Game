@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
 
     // MARK: - Variables
 
-    let gridSize = (5,2)
+    var gridSize: (Int, Int)? = (5,2)
 
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
@@ -28,12 +28,25 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setCollectionView()
+    }
+
+    // MARK: - Functions
+
+    private func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isScrollEnabled = false
     }
 
-    // MARK: - Functions
+    private func configureCardMatrix() {
+        /*
+         Step 1: Figure out how many unique cards are required
+         Step 2: Randomly choice that many unique cards
+         Step 3: Randomly distribute the cards into a matrix
+         Step 4: Save that matrix and send it to the collection view
+         */
+    }
 
     // MARK: - IBActions
 
@@ -69,12 +82,10 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        //  TODO: implement this code because gridSize will be optionally and passed from lobby screen
-
-        //  guard let gridSize = gridSize else {
-        //      print("Failed to get cell size")
-        //      return collectionView.contentSize
-        //  }
+          guard let gridSize = gridSize else {
+              print("Failed to get cell size")
+              return collectionView.contentSize
+          }
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1) + 1)
         let availableWidth = collectionView.frame.width - paddingSpaceWidth
         let widthPerCard = availableWidth/CGFloat(gridSize.1)
