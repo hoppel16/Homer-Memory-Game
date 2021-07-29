@@ -8,5 +8,11 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet var textLabel: UILabel!
+
+    var cardType: Card? {
+        didSet {
+            textLabel.text = "Set"
+        }
+    }
 }

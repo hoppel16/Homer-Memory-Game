@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="278" y="33"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="k7F-RH-L3Z">
             <objects>
-                <viewController id="TQA-gJ-prF" sceneMemberID="viewController">
+                <viewController id="TQA-gJ-prF" customClass="GameViewController" customModule="Homer_Memory_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mv5-yW-dPl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,16 +57,64 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ET-VH-4UH">
                                 <rect key="frame" x="40" y="84" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="clickBackButton:" destination="TQA-gJ-prF" eventType="touchUpInside" id="r0j-0a-bGM"/>
+                                </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QLo-wF-R5Z">
+                                <rect key="frame" x="0.0" y="134" width="414" height="708"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Rt-mF-3af">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="VaL-pn-c4e" customClass="CardCollectionViewCell" customModule="Homer_Memory_Game" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lmm-8G-cbh">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG1-eS-8cQ">
+                                                    <rect key="frame" x="43" y="53.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iG1-eS-8cQ" firstAttribute="centerY" secondItem="lmm-8G-cbh" secondAttribute="centerY" id="Tlh-Hm-w3T"/>
+                                                <constraint firstItem="iG1-eS-8cQ" firstAttribute="centerX" secondItem="lmm-8G-cbh" secondAttribute="centerX" id="z5I-Vx-laj"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
+                                        <connections>
+                                            <outlet property="textLabel" destination="iG1-eS-8cQ" id="7ss-LE-hDy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UrU-fg-Kyo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QLo-wF-R5Z" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" id="9fo-Hz-pjK"/>
+                            <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0ET-VH-4UH" secondAttribute="trailing" constant="20" id="GWE-Hh-o0S"/>
+                            <constraint firstItem="UrU-fg-Kyo" firstAttribute="bottom" secondItem="QLo-wF-R5Z" secondAttribute="bottom" constant="20" id="M7P-Dq-bWP"/>
+                            <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" secondItem="QLo-wF-R5Z" secondAttribute="trailing" id="QBN-Wt-Mkb"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="top" secondItem="UrU-fg-Kyo" secondAttribute="top" constant="40" id="c03-yx-GQG"/>
+                            <constraint firstItem="QLo-wF-R5Z" firstAttribute="top" secondItem="0ET-VH-4UH" secondAttribute="bottom" constant="20" id="frV-M1-LjB"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" constant="40" id="khu-8K-5ex"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fvn-BX-dZv"/>
+                    <connections>
+                        <outlet property="backButton" destination="0ET-VH-4UH" id="FeG-gH-bGg"/>
+                        <outlet property="collectionView" destination="QLo-wF-R5Z" id="Kal-Yl-k3u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNu-ql-9Jx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

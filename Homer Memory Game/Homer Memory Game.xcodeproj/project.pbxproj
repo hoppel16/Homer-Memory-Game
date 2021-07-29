@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */; };
+		2B5C681A26B2A1530068BB74 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681926B2A1530068BB74 /* Card.swift */; };
 		2BDDBF8226B294D10002AA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8126B294D10002AA7D /* AppDelegate.swift */; };
 		2BDDBF8426B294D10002AA7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8326B294D10002AA7D /* SceneDelegate.swift */; };
 		2BDDBF8926B294D10002AA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8726B294D10002AA7D /* Main.storyboard */; };
 		2BDDBF8B26B294D20002AA7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8A26B294D20002AA7D /* Assets.xcassets */; };
 		2BDDBF8E26B294D20002AA7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8C26B294D20002AA7D /* LaunchScreen.storyboard */; };
+		2BDDBF9A26B29C4C0002AA7D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF9926B29C4C0002AA7D /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B5C681926B2A1530068BB74 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2BDDBF7E26B294D10002AA7D /* Homer Memory Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homer Memory Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDDBF8126B294D10002AA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BDDBF8326B294D10002AA7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		2BDDBF8A26B294D20002AA7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BDDBF8D26B294D20002AA7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BDDBF8F26B294D20002AA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BDDBF9926B29C4C0002AA7D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B5C681626B2A1170068BB74 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		2BDDBF7526B294D00002AA7D = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +68,7 @@
 		2BDDBF8026B294D10002AA7D /* Homer Memory Game */ = {
 			isa = PBXGroup;
 			children = (
+				2B5C681626B2A1170068BB74 /* Cells */,
 				2BDDBF9726B295AB0002AA7D /* View */,
 				2BDDBF9826B295B30002AA7D /* Model */,
 				2BDDBF9526B295140002AA7D /* Storyboards */,
@@ -85,6 +100,7 @@
 		2BDDBF9726B295AB0002AA7D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BDDBF9926B29C4C0002AA7D /* GameViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +108,7 @@
 		2BDDBF9826B295B30002AA7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B5C681926B2A1530068BB74 /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */,
 				2BDDBF8226B294D10002AA7D /* AppDelegate.swift in Sources */,
+				2B5C681A26B2A1530068BB74 /* Card.swift in Sources */,
+				2BDDBF9A26B29C4C0002AA7D /* GameViewController.swift in Sources */,
 				2BDDBF8426B294D10002AA7D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

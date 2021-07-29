@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum Card {
+    case GhostDog
+    case Horse
+    case GarbageMan
+}
