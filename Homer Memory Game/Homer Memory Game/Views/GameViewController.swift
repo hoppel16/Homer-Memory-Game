@@ -95,9 +95,9 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-          guard let gridSize = gridSize else {
+        guard let gridSize = gridSize else {
               return collectionView.contentSize
-          }
+        }
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1) + 1)
         let availableWidth = collectionView.frame.width - paddingSpaceWidth
         let widthPerCard = availableWidth/CGFloat(gridSize.1)
