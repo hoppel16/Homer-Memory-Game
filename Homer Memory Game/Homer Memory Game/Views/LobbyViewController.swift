@@ -22,10 +22,19 @@ class LobbyViewController: UIViewController {
         super.viewDidLoad()
 
         createGridSizes()
+        setUpView()
         setUpTableView()
     }
 
     // MARK: - Functions
+
+    private func setUpView() {
+        guard let backgroundArt = UIImage(named: "backgroundArt") else {
+            return
+        }
+
+        self.view.backgroundColor = UIColor(patternImage: backgroundArt)
+    }
 
     private func setUpTableView() {
         tableView.delegate = self
@@ -33,6 +42,8 @@ class LobbyViewController: UIViewController {
 
         tableView.isScrollEnabled = false
         tableView.separatorStyle = .none
+
+        tableView.backgroundColor = .clear
     }
 
     private func createGridSizes() {
@@ -73,6 +84,7 @@ extension LobbyViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Could not set cell as GridSizeTableViewCell")
         }
 
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.gridSizeText = grids[indexPath.row].name
 
         return cell

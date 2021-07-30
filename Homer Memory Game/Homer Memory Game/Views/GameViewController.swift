@@ -37,15 +37,25 @@ class GameViewController: UIViewController {
                                      bottom: insetHeight,
                                      right: insetWidth)
         self.cardList = gameViewPresenter.configureCardListWithGridSize(gridSize)
+        setUpView()
         setCollectionView()
     }
 
     // MARK: - Functions
 
+    private func setUpView() {
+        guard let backgroundArt = UIImage(named: "backgroundArt") else {
+            return
+        }
+        self.view.backgroundColor = UIColor(patternImage: backgroundArt)
+    }
+
     private func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isScrollEnabled = false
+
+        collectionView.backgroundColor = .clear
     }
 
     // MARK: - IBActions

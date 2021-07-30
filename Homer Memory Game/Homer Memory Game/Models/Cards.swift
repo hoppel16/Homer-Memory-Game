@@ -8,14 +8,14 @@
 import Foundation
 
 enum Cards: String, CaseIterable {
-    case GhostDog = "memoryGhostDogCardFront"
-    case Horse = "memoryHorseCardFront"
-    case GarbageMan = "memoryGarbageManCardFront"
-    case Spider = "memorySpiderCardFront"
-    case Cat = "memoryCatCardFront"
     case Bat = "memoryBatCardFront"
-    case Pig = "memoryPigCardFront"
-    case Hen = "memoryHenCardFront"
+    case Cat = "memoryCatCardFront"
     case Cow = "memoryCowCardFront"
     case Dragon = "memoryDragonFront"
+    case GarbageMan = "memoryGarbageManCardFront"
+    case GhostDog = "memoryGhostDogCardFront"
+    case Horse = "memoryHorseCardFront"
+    case Hen = "memoryHenCardFront"
+    case Pig = "memoryPigCardFront"
+    case Spider = "memorySpiderCardFront"
 }
