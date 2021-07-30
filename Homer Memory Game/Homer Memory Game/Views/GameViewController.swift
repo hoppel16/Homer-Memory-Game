@@ -103,6 +103,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             fatalError("Failed to set cell as CardCollectionViewCell")
         }
 
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.cardType = self.cardList[indexPath.row]
         return cell
     }
