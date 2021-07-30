@@ -72,9 +72,11 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.isMatched.toggle()
             previousCell.isMatched.toggle()
         case false:
+            collectionView.isUserInteractionEnabled.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + failedMatchDelay) {
                 cell.isFlipped.toggle()
                 previousCell.isFlipped.toggle()
+                collectionView.isUserInteractionEnabled.toggle()
             }
         default:
             previouslySelectedIndex = indexPath
