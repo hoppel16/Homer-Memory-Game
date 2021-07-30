@@ -8,13 +8,20 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var imageView: UIImageView!
+
     var cardType: Card?
 
     var isFlipped: Bool = false {
         didSet {
             if isFlipped {
+                guard let imageName = cardType?.rawValue else {
+                    return
+                }
+                imageView.image = UIImage(named: imageName)
                 self.isUserInteractionEnabled = false
             } else {
+                imageView.image = UIImage(named: "allCardBacks")
                 self.isUserInteractionEnabled = true
             }
         }

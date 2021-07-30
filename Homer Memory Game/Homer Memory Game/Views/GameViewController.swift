@@ -17,10 +17,11 @@ class GameViewController: UIViewController {
     // MARK: - Variables
 
     private let gameViewPresenter = GameViewPresenter()
+    private let failedMatchDelay = 0.7
 
-    var gridSize: (Int, Int)? = (4,3)
-    var insetWidth: CGFloat? = 10
-    var insetHeight: CGFloat? = 10
+    var gridSize: (Int, Int) = (4,4)
+    var insetWidth: CGFloat = 10
+    var insetHeight: CGFloat = 10
 
     private var cardList = [Card]()
     private var previouslySelectedIndex: IndexPath?
@@ -31,9 +32,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let gridSize = gridSize,
-              let insetWidth = insetWidth,
-              let insetHeight = insetHeight else { return }
         sectionInsets = UIEdgeInsets(top: insetHeight,
                                      left: insetWidth,
                                      bottom: insetHeight,
@@ -61,7 +59,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell,
               let cardType = cell.cardType else { return }
-        cell.isFlipped = true
+        cell.isFlipped.toggle()
 
         var previousCell = CardCollectionViewCell()
         if let previousIndex = previouslySelectedIndex,
@@ -71,18 +69,19 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         switch gameViewPresenter.cardWasSelected(cardType) {
         case true:
-            cell.isMatched = true
-            previousCell.isMatched = true
+            cell.isMatched.toggle()
+            previousCell.isMatched.toggle()
         case false:
-            cell.isFlipped = false
-            previousCell.isFlipped = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + failedMatchDelay) {
+                cell.isFlipped.toggle()
+                previousCell.isFlipped.toggle()
+            }
         default:
             previouslySelectedIndex = indexPath
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let gridSize = gridSize else { return 0 }
         return gridSize.0 * gridSize.1
     }
     
@@ -100,8 +99,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        guard let gridSize = gridSize,
-              let sectionInsets = sectionInsets else {
+        guard let sectionInsets = sectionInsets else {
               return collectionView.contentSize
         }
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1))
