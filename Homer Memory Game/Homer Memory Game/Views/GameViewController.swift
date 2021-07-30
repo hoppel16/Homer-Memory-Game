@@ -16,23 +16,28 @@ class GameViewController: UIViewController {
 
     // MARK: - Variables
 
-    var gridSize: (Int, Int)? = (5,2)
+    private let gameViewPresenter = GameViewPresenter()
+
+    var gridSize: (Int, Int)? = (4,3)
+    var insetWidth: CGFloat? = 10
+    var insetHeight: CGFloat? = 10
 
     private var cardList = [Card]()
-
     private var previouslySelectedIndex: IndexPath?
-    private let gameViewPresenter = GameViewPresenter()
-    private let sectionInsets = UIEdgeInsets(top: 50.0,
-                                             left: 20.0,
-                                             bottom: 50.0,
-                                             right: 20.0)
+    private var sectionInsets: UIEdgeInsets?
 
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let gridSize = gridSize else { return }
+        guard let gridSize = gridSize,
+              let insetWidth = insetWidth,
+              let insetHeight = insetHeight else { return }
+        sectionInsets = UIEdgeInsets(top: insetHeight,
+                                     left: insetWidth,
+                                     bottom: insetHeight,
+                                     right: insetWidth)
         self.cardList = gameViewPresenter.configureCardListWithGridSize(gridSize)
         setCollectionView()
     }
@@ -95,7 +100,8 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        guard let gridSize = gridSize else {
+        guard let gridSize = gridSize,
+              let sectionInsets = sectionInsets else {
               return collectionView.contentSize
         }
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1))
@@ -104,7 +110,7 @@ extension GameViewController: UICollectionViewDelegateFlowLayout {
 
         let paddingSpaceHeight = sectionInsets.top * CGFloat((gridSize.0))
         let availableHeight = collectionView.frame.height - paddingSpaceHeight
-        let heightPerCard = availableHeight/CGFloat(gridSize.1)
+        let heightPerCard = availableHeight/CGFloat(gridSize.0)
 
         return CGSize(width: widthPerCard, height: heightPerCard)
     }
