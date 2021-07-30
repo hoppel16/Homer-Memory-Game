@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
     // MARK: - Variables
 
     private let gameViewPresenter = GameViewPresenter()
-    private let failedMatchDelay = 0.7
+    private let failedMatchDelay = 1.0
 
     var gridSize: (Int, Int) = (4,4)
     var insetWidth: CGFloat = 10
