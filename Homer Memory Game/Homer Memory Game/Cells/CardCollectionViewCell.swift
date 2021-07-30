@@ -7,37 +7,6 @@
 
 import UIKit
 
-//@IBOutlet weak var containerView: UIView!
-//
-//private let backImageView: UIImageView! = UIImageView(image: UIImage(named: "back"))
-//private let frontImageView: UIImageView! = UIImageView(image: UIImage(named: "front"))
-//
-//private var showingBack = false
-//
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//
-//    frontImageView.contentMode = .ScaleAspectFit
-//    backImageView.contentMode = .ScaleAspectFit
-//
-//    containerView.addSubview(frontImageView)
-//    frontImageView.translatesAutoresizingMaskIntoConstraints = false
-//    frontImageView.spanSuperview()
-//
-//    let singleTap = UITapGestureRecognizer(target: self, action: #selector(flip))
-//    singleTap.numberOfTapsRequired = 1
-//    containerView.addGestureRecognizer(singleTap)
-//}
-//
-//func flip() {
-//    let toView = showingBack ? frontImageView : backImageView
-//    let fromView = showingBack ? backImageView : frontImageView
-//    UIView.transitionFromView(fromView, toView: toView, duration: 1, options: .TransitionFlipFromRight, completion: nil)
-//    toView.translatesAutoresizingMaskIntoConstraints = false
-//    toView.spanSuperview()
-//    showingBack = !showingBack
-//}
-
 class CardCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Outlets
@@ -46,7 +15,6 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Variables
 
-    private var currentView: UIImageView?
     private var cardFrontView: UIImageView?
     private let cardBackView: UIImageView! = UIImageView(image: UIImage(named: "allCardBacks"))
 
@@ -82,10 +50,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         constrainIncomingViewNamed(cardBackView)
     }
 
-    private func shakeCurrentView() {
-        
-    }
-
     private func constrainIncomingViewNamed(_ view: UIImageView?) {
         // TODO: Find a way to save the constraints so its not recalculating them every time
 
@@ -98,8 +62,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         view.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         view.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-
-        currentView = view
     }
 
     private func flipImage() {
