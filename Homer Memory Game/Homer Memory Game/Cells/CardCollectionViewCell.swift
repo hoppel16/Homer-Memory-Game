@@ -8,21 +8,13 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var textLabel: UILabel!
-
-    var cardType: Card? {
-        didSet {
-            textLabel.text = cardType?.rawValue
-        }
-    }
+    var cardType: Card?
 
     var isFlipped: Bool = false {
         didSet {
             if isFlipped {
-                textLabel.textColor = .red
                 self.isUserInteractionEnabled = false
             } else {
-                textLabel.textColor = .black
                 self.isUserInteractionEnabled = true
             }
         }
@@ -31,7 +23,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     var isMatched: Bool = false {
         didSet {
             if isMatched {
-                textLabel.textColor = .purple
                 self.isUserInteractionEnabled = false
             }
         }
