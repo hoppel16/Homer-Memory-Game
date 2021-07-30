@@ -10,13 +10,13 @@ import Foundation
 class GameViewPresenter {
 
     private var isGuessing = false
-    private var previouslySelectedCard: Card?
+    private var previouslySelectedCard: Cards?
 
-    func configureCardListWithGridSize(_ gridSize: (Int, Int)) -> [Card] {
+    func configureCardListWithGridSize(_ gridSize: (Int, Int)) -> [Cards] {
         let uniqueCardCount = (gridSize.0 * gridSize.1)/2
 
-        var cardTypes = Card.allCases
-        var cardList = [Card]()
+        var cardTypes = Cards.allCases
+        var cardList = [Cards]()
 
         for _ in 0..<uniqueCardCount {
             let randomCardIndex = Int.random(in: 0..<cardTypes.count)
@@ -29,7 +29,7 @@ class GameViewPresenter {
         return cardList
     }
 
-    func cardWasSelected(_ selectedCard: Card) -> Bool? {
+    func cardWasSelected(_ selectedCard: Cards) -> Bool? {
         switch isGuessing {
         case true:
             isGuessing = false

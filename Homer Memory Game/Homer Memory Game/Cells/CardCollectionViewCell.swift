@@ -10,7 +10,7 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
 
-    var cardType: Card?
+    var cardType: Cards?
 
     var isFlipped: Bool = false {
         didSet {

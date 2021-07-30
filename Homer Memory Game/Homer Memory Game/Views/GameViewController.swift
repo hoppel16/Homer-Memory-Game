@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     var insetWidth: CGFloat = 10
     var insetHeight: CGFloat = 10
 
-    private var cardList = [Card]()
+    private var cardList = [Cards]()
     private var previouslySelectedIndex: IndexPath?
     private var sectionInsets: UIEdgeInsets?
 
@@ -89,7 +89,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as? CardCollectionViewCell else {
-            // Im crashing here just because this is a prototype
+            // Ok for prototype but present proper error in full app.
             fatalError("Failed to set cell as CardCollectionViewCell")
         }
 
@@ -100,10 +100,10 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension GameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         guard let sectionInsets = sectionInsets else {
               return collectionView.contentSize
         }
+        
         let paddingSpaceWidth = sectionInsets.left * CGFloat((gridSize.1))
         let availableWidth = collectionView.frame.width - paddingSpaceWidth
         let widthPerCard = availableWidth/CGFloat(gridSize.1)

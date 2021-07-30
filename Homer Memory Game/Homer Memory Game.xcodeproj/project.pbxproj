@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B431B9426B49963005E84C1 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431B9326B49963005E84C1 /* LobbyViewController.swift */; };
+		2B431B9626B49C71005E84C1 /* GridSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431B9526B49C71005E84C1 /* GridSizeTableViewCell.swift */; };
+		2B431B9826B49EF1005E84C1 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431B9726B49EF1005E84C1 /* Grid.swift */; };
 		2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */; };
-		2B5C681A26B2A1530068BB74 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681926B2A1530068BB74 /* Card.swift */; };
+		2B5C681A26B2A1530068BB74 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681926B2A1530068BB74 /* Cards.swift */; };
 		2B5C681D26B2ED4B0068BB74 /* GameViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */; };
 		2BDDBF8226B294D10002AA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8126B294D10002AA7D /* AppDelegate.swift */; };
 		2BDDBF8426B294D10002AA7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF8326B294D10002AA7D /* SceneDelegate.swift */; };
@@ -19,8 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B431B9326B49963005E84C1 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		2B431B9526B49C71005E84C1 /* GridSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSizeTableViewCell.swift; sourceTree = "<group>"; };
+		2B431B9726B49EF1005E84C1 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
-		2B5C681926B2A1530068BB74 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2B5C681926B2A1530068BB74 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPresenter.swift; sourceTree = "<group>"; };
 		2BDDBF7E26B294D10002AA7D /* Homer Memory Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homer Memory Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDDBF8126B294D10002AA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +52,7 @@
 		2B5C681626B2A1170068BB74 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2B431B9526B49C71005E84C1 /* GridSizeTableViewCell.swift */,
 				2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -111,6 +118,7 @@
 		2BDDBF9726B295AB0002AA7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2B431B9326B49963005E84C1 /* LobbyViewController.swift */,
 				2BDDBF9926B29C4C0002AA7D /* GameViewController.swift */,
 			);
 			path = Views;
@@ -119,7 +127,8 @@
 		2BDDBF9826B295B30002AA7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2B5C681926B2A1530068BB74 /* Card.swift */,
+				2B5C681926B2A1530068BB74 /* Cards.swift */,
+				2B431B9726B49EF1005E84C1 /* Grid.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,9 +205,12 @@
 			files = (
 				2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */,
 				2BDDBF8226B294D10002AA7D /* AppDelegate.swift in Sources */,
-				2B5C681A26B2A1530068BB74 /* Card.swift in Sources */,
+				2B431B9626B49C71005E84C1 /* GridSizeTableViewCell.swift in Sources */,
+				2B5C681A26B2A1530068BB74 /* Cards.swift in Sources */,
 				2B5C681D26B2ED4B0068BB74 /* GameViewPresenter.swift in Sources */,
+				2B431B9426B49963005E84C1 /* LobbyViewController.swift in Sources */,
 				2BDDBF9A26B29C4C0002AA7D /* GameViewController.swift in Sources */,
+				2B431B9826B49EF1005E84C1 /* Grid.swift in Sources */,
 				2BDDBF8426B294D10002AA7D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

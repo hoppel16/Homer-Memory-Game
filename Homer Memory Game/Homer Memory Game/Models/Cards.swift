@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  Cards.swift
 //  Homer Memory Game
 //
 //  Created by Hunter Oppel on 7/29/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Card: String, CaseIterable {
+enum Cards: String, CaseIterable {
     case GhostDog = "memoryGhostDogCardFront"
     case Horse = "memoryHorseCardFront"
     case GarbageMan = "memoryGarbageManCardFront"
