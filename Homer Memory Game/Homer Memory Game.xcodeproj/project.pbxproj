@@ -12,6 +12,7 @@
 		2B431B9826B49EF1005E84C1 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431B9726B49EF1005E84C1 /* Grid.swift */; };
 		2B431B9B26B57CB5005E84C1 /* successSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B431B9A26B57CB5005E84C1 /* successSound.mp3 */; };
 		2B431B9D26B57CBC005E84C1 /* failureSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B431B9C26B57CBC005E84C1 /* failureSound.mp3 */; };
+		2B431BA526B580CD005E84C1 /* Homer_Memory_Game_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431BA426B580CD005E84C1 /* Homer_Memory_Game_Tests.swift */; };
 		2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */; };
 		2B5C681A26B2A1530068BB74 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681926B2A1530068BB74 /* Cards.swift */; };
 		2B5C681D26B2ED4B0068BB74 /* GameViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */; };
@@ -23,12 +24,25 @@
 		2BDDBF9A26B29C4C0002AA7D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBF9926B29C4C0002AA7D /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2B431BA726B580CD005E84C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BDDBF7626B294D00002AA7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BDDBF7D26B294D00002AA7D;
+			remoteInfo = "Homer Memory Game";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2B431B9326B49963005E84C1 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		2B431B9526B49C71005E84C1 /* GridSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSizeTableViewCell.swift; sourceTree = "<group>"; };
 		2B431B9726B49EF1005E84C1 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		2B431B9A26B57CB5005E84C1 /* successSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = successSound.mp3; sourceTree = "<group>"; };
 		2B431B9C26B57CBC005E84C1 /* failureSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failureSound.mp3; sourceTree = "<group>"; };
+		2B431BA226B580CD005E84C1 /* Homer Memory Game Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homer Memory Game Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B431BA426B580CD005E84C1 /* Homer_Memory_Game_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homer_Memory_Game_Tests.swift; sourceTree = "<group>"; };
+		2B431BA626B580CD005E84C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B5C681926B2A1530068BB74 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPresenter.swift; sourceTree = "<group>"; };
@@ -43,6 +57,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2B431B9F26B580CD005E84C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BDDBF7B26B294D00002AA7D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,6 +81,15 @@
 				2B431B9C26B57CBC005E84C1 /* failureSound.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		2B431BA326B580CD005E84C1 /* Homer Memory Game Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2B431BA426B580CD005E84C1 /* Homer_Memory_Game_Tests.swift */,
+				2B431BA626B580CD005E84C1 /* Info.plist */,
+			);
+			path = "Homer Memory Game Tests";
 			sourceTree = "<group>";
 		};
 		2B5C681626B2A1170068BB74 /* Cells */ = {
@@ -83,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2BDDBF8026B294D10002AA7D /* Homer Memory Game */,
+				2B431BA326B580CD005E84C1 /* Homer Memory Game Tests */,
 				2BDDBF7F26B294D10002AA7D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2BDDBF7E26B294D10002AA7D /* Homer Memory Game.app */,
+				2B431BA226B580CD005E84C1 /* Homer Memory Game Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +182,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2B431BA126B580CD005E84C1 /* Homer Memory Game Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B431BA926B580CD005E84C1 /* Build configuration list for PBXNativeTarget "Homer Memory Game Tests" */;
+			buildPhases = (
+				2B431B9E26B580CD005E84C1 /* Sources */,
+				2B431B9F26B580CD005E84C1 /* Frameworks */,
+				2B431BA026B580CD005E84C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B431BA826B580CD005E84C1 /* PBXTargetDependency */,
+			);
+			name = "Homer Memory Game Tests";
+			productName = "Homer Memory Game Tests";
+			productReference = 2B431BA226B580CD005E84C1 /* Homer Memory Game Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2BDDBF7D26B294D00002AA7D /* Homer Memory Game */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BDDBF9226B294D20002AA7D /* Build configuration list for PBXNativeTarget "Homer Memory Game" */;
@@ -176,6 +226,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					2B431BA126B580CD005E84C1 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 2BDDBF7D26B294D00002AA7D;
+					};
 					2BDDBF7D26B294D00002AA7D = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -195,11 +249,19 @@
 			projectRoot = "";
 			targets = (
 				2BDDBF7D26B294D00002AA7D /* Homer Memory Game */,
+				2B431BA126B580CD005E84C1 /* Homer Memory Game Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2B431BA026B580CD005E84C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BDDBF7C26B294D00002AA7D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +277,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2B431B9E26B580CD005E84C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B431BA526B580CD005E84C1 /* Homer_Memory_Game_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BDDBF7A26B294D00002AA7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +302,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B431BA826B580CD005E84C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BDDBF7D26B294D00002AA7D /* Homer Memory Game */;
+			targetProxy = 2B431BA726B580CD005E84C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2BDDBF8726B294D10002AA7D /* Main.storyboard */ = {
@@ -253,6 +331,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2B431BAA26B580CD005E84C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66NN5GCJS7;
+				INFOPLIST_FILE = "Homer Memory Game Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hunteroppel.Homer-Memory-Game-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homer Memory Game.app/Homer Memory Game";
+			};
+			name = Debug;
+		};
+		2B431BAB26B580CD005E84C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66NN5GCJS7;
+				INFOPLIST_FILE = "Homer Memory Game Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hunteroppel.Homer-Memory-Game-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homer Memory Game.app/Homer Memory Game";
+			};
+			name = Release;
+		};
 		2BDDBF9026B294D20002AA7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +532,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B431BA926B580CD005E84C1 /* Build configuration list for PBXNativeTarget "Homer Memory Game Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B431BAA26B580CD005E84C1 /* Debug */,
+				2B431BAB26B580CD005E84C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2BDDBF7926B294D00002AA7D /* Build configuration list for PBXProject "Homer Memory Game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

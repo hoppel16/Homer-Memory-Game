@@ -11,6 +11,7 @@ import AVFoundation
 class GameViewPresenter {
 
     var uniqueCardCount = 0
+    var cardTypes = [Cards]()
 
     private var soundDelay = 0.4
     private var isGuessing = false
@@ -18,16 +19,26 @@ class GameViewPresenter {
     private var player: AVAudioPlayer?
 
     func configureCardListWithGridSize(_ gridSize: (Int, Int)) -> [Cards] {
-        uniqueCardCount = (gridSize.0 * gridSize.1)/2
+        let cardsRequired = gridSize.0 * gridSize.1
+        uniqueCardCount = cardsRequired/2
 
-        var cardTypes = Cards.allCases
+        cardTypes = Cards.allCases
         var cardList = [Cards]()
+
+        if uniqueCardCount > cardTypes.count {
+            return []
+        }
 
         for _ in 0..<uniqueCardCount {
             let randomCardIndex = Int.random(in: 0..<cardTypes.count)
             let chosenCardType = cardTypes[randomCardIndex]
             cardTypes.remove(at: randomCardIndex)
             cardList += [chosenCardType, chosenCardType]
+        }
+        if cardList.count != cardsRequired {
+            let randomCardIndex = Int.random(in: 0..<Cards.allCases.count)
+            let chosenCardType = Cards.allCases[randomCardIndex]
+            cardList += [chosenCardType]
         }
         cardList.shuffle()
 
