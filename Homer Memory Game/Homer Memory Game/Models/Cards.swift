@@ -11,7 +11,7 @@ enum Cards: String, CaseIterable {
     case Bat = "memoryBatCardFront"
     case Cat = "memoryCatCardFront"
     case Cow = "memoryCowCardFront"
-    case Dragon = "memoryDragonFront"
+    case Dragon = "memoryDragonCardFront"
     case GarbageMan = "memoryGarbageManCardFront"
     case GhostDog = "memoryGhostDogCardFront"
     case Horse = "memoryHorseCardFront"
