@@ -26,6 +26,10 @@ class LobbyViewController: UIViewController {
         setUpTableView()
     }
 
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+
     // MARK: - Functions
 
     private func setUpView() {
@@ -50,7 +54,7 @@ class LobbyViewController: UIViewController {
         grids += [Grid(name: "3x4", size: (4,3)),
                   Grid(name: "4x4", size: (4,4)),
                   Grid(name: "4x5", size: (5,4)),
-                  Grid(name: "5x2",size: (5,2))]
+                  Grid(name: "5x2", size: (5,2))]
         tableView.reloadData()
     }
 

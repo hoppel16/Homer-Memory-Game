@@ -44,6 +44,23 @@ class GameViewController: UIViewController {
         setCollectionView()
     }
 
+    // iPads are extremely resilient to stopping their autorotate. Since it looks ok on them, I'll allow them to reset the collectionViews layout
+    override open var shouldAutorotate: Bool {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return false
+        case .pad:
+            return true
+        default:
+            return false
+        }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
     // MARK: - Functions
 
     private func setUpView() {
@@ -69,7 +86,7 @@ class GameViewController: UIViewController {
 
     private func presentWinNotification() {
         let winTitle = "You Win!"
-        let winMessage = "You matches all the cards in \(matchAttempts) tries!"
+        let winMessage = "You matched all the cards in \(matchAttempts) tries!"
         let okAction = UIAlertAction(title: "Great!", style: .cancel)
         let playAgainAction = UIAlertAction(title: "Play Again?", style: .default) { action in
             self.setUpCardList()
