@@ -135,9 +135,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkc-0K-GV1">
-                                <rect key="frame" x="215.5" y="86.5" width="78" height="37"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkc-0K-GV1">
+                                <rect key="frame" x="135.5" y="93" width="51" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -154,7 +154,7 @@
                             <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hkc-0K-GV1" secondAttribute="trailing" constant="20" id="kZd-eN-Bl1"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" constant="20" id="khu-8K-5ex"/>
                             <constraint firstItem="Hkc-0K-GV1" firstAttribute="centerY" secondItem="0ET-VH-4UH" secondAttribute="centerY" id="lYH-8w-hys"/>
-                            <constraint firstItem="Hkc-0K-GV1" firstAttribute="leading" secondItem="0ET-VH-4UH" secondAttribute="trailing" constant="100" id="oKG-sv-Rt3"/>
+                            <constraint firstItem="Hkc-0K-GV1" firstAttribute="leading" secondItem="0ET-VH-4UH" secondAttribute="trailing" constant="20" id="oKG-sv-Rt3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fvn-BX-dZv"/>
