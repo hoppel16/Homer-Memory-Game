@@ -13,13 +13,13 @@ class GameViewController: UIViewController {
 
     @IBOutlet var backButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var scoreLabel: UILabel!
 
     // MARK: - Variables
 
     private let gameViewPresenter = GameViewPresenter()
     private let failedMatchDelay = 1.0
 
+    // Set with default values in case something goes wrong in the transition
     var gridSize: (Int, Int) = (4,4)
     var insetWidth: CGFloat = 10
     var insetHeight: CGFloat = 10
@@ -27,11 +27,8 @@ class GameViewController: UIViewController {
     private var cardList = [Cards]()
     private var previouslySelectedIndex: IndexPath?
     private var sectionInsets: UIEdgeInsets?
-    private var currentMatches = 0 {
-        didSet {
-            updateView()
-        }
-    }
+    private var currentMatches = 0
+    private var matchAttempts = 0
 
     // MARK: - View Lifecycle
 
@@ -42,7 +39,7 @@ class GameViewController: UIViewController {
                                      left: insetWidth,
                                      bottom: insetHeight,
                                      right: insetWidth)
-        self.cardList = gameViewPresenter.configureCardListWithGridSize(gridSize)
+        setUpCardList()
         setUpView()
         setCollectionView()
     }
@@ -54,11 +51,6 @@ class GameViewController: UIViewController {
             return
         }
         self.view.backgroundColor = UIColor(patternImage: backgroundArt)
-        updateView()
-    }
-
-    private func updateView() {
-        scoreLabel.text = "\(currentMatches) out of \(gameViewPresenter.uniqueCardCount) matches left!"
     }
 
     private func setCollectionView() {
@@ -67,6 +59,34 @@ class GameViewController: UIViewController {
         collectionView.isScrollEnabled = false
 
         collectionView.backgroundColor = .clear
+    }
+
+    private func setUpCardList() {
+        self.cardList = gameViewPresenter.configureCardListWithGridSize(gridSize)
+        collectionView.isUserInteractionEnabled = true
+        collectionView.reloadData()
+    }
+
+    private func presentWinNotification() {
+        let winTitle = "You Win!"
+        let winMessage = "You matches all the cards in \(matchAttempts) tries!"
+        let okAction = UIAlertAction(title: "Great!", style: .cancel)
+        let playAgainAction = UIAlertAction(title: "Play Again?", style: .default) { action in
+            self.setUpCardList()
+            self.currentMatches = 0
+            self.matchAttempts = 0
+        }
+        presentNotification(title: winTitle, message: winMessage, actions: [okAction, playAgainAction])
+    }
+
+    private func presentNotification(title: String, message: String, actions: [UIAlertAction]?) {
+        let notification = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let actions = actions {
+            for action in actions {
+                notification.addAction(action)
+            }
+        }
+        present(notification, animated: true, completion: nil)
     }
 
     // MARK: - IBActions
@@ -104,6 +124,13 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         default:
             previouslySelectedIndex = indexPath
+            return
+        }
+
+        matchAttempts += 1
+
+        if currentMatches == gameViewPresenter.uniqueCardCount {
+            presentWinNotification()
         }
     }
 
@@ -119,6 +146,10 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.cardType = self.cardList[indexPath.row]
+
+        cell.isMatched = false
+        cell.isFlipped = false
+
         return cell
     }
 }

@@ -135,12 +135,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkc-0K-GV1">
-                                <rect key="frame" x="135.5" y="93" width="51" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UrU-fg-Kyo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -151,17 +145,13 @@
                             <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" secondItem="QLo-wF-R5Z" secondAttribute="trailing" constant="20" id="QBN-Wt-Mkb"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="top" secondItem="UrU-fg-Kyo" secondAttribute="top" constant="20" id="c03-yx-GQG"/>
                             <constraint firstItem="QLo-wF-R5Z" firstAttribute="top" secondItem="0ET-VH-4UH" secondAttribute="bottom" constant="20" id="frV-M1-LjB"/>
-                            <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hkc-0K-GV1" secondAttribute="trailing" constant="20" id="kZd-eN-Bl1"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" constant="20" id="khu-8K-5ex"/>
-                            <constraint firstItem="Hkc-0K-GV1" firstAttribute="centerY" secondItem="0ET-VH-4UH" secondAttribute="centerY" id="lYH-8w-hys"/>
-                            <constraint firstItem="Hkc-0K-GV1" firstAttribute="leading" secondItem="0ET-VH-4UH" secondAttribute="trailing" constant="20" id="oKG-sv-Rt3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fvn-BX-dZv"/>
                     <connections>
                         <outlet property="backButton" destination="0ET-VH-4UH" id="FeG-gH-bGg"/>
                         <outlet property="collectionView" destination="QLo-wF-R5Z" id="Kal-Yl-k3u"/>
-                        <outlet property="scoreLabel" destination="Hkc-0K-GV1" id="bcr-n6-idY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNu-ql-9Jx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
