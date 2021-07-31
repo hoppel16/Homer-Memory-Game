@@ -15,6 +15,7 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Variables
 
+    private let rotationValue = 0.1
     private let flipDuration = 0.5
 
     private var cardFrontView: UIImageView?
@@ -41,8 +42,8 @@ class CardCollectionViewCell: UICollectionViewCell {
                     rotation.duration = 0.06
                     rotation.repeatCount = 4
                     rotation.autoreverses = true
-                    rotation.fromValue = NSNumber(value: 0.1)
-                    rotation.toValue = NSNumber(value: -0.1)
+                    rotation.fromValue = NSNumber(value: self.rotationValue)
+                    rotation.toValue = NSNumber(value: -self.rotationValue)
                     self.uiView.layer.add(rotation, forKey: "position")
                 }
             }
