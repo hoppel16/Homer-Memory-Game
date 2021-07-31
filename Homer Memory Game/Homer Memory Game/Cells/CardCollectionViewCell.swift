@@ -15,6 +15,8 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Variables
 
+    private let flipDuration = 0.5
+
     private var cardFrontView: UIImageView?
     private let cardBackView: UIImageView! = UIImageView(image: UIImage(named: "allCardBacks"))
 
@@ -34,6 +36,15 @@ class CardCollectionViewCell: UICollectionViewCell {
         didSet {
             if isMatched {
                 self.isUserInteractionEnabled = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + flipDuration) {
+                    let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+                    rotation.duration = 0.06
+                    rotation.repeatCount = 4
+                    rotation.autoreverses = true
+                    rotation.fromValue = NSNumber(value: 0.1)
+                    rotation.toValue = NSNumber(value: -0.1)
+                    self.uiView.layer.add(rotation, forKey: "position")
+                }
             }
         }
     }
@@ -68,11 +79,19 @@ class CardCollectionViewCell: UICollectionViewCell {
         guard let cardFrontView = cardFrontView else { return }
         if isFlipped {
             constrainIncomingViewNamed(cardFrontView)
-            UIView.transition(from: cardBackView, to: cardFrontView, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
+            UIView.transition(from: cardBackView,
+                              to: cardFrontView,
+                              duration: flipDuration,
+                              options: .transitionFlipFromRight,
+                              completion: nil)
             self.isUserInteractionEnabled = false
         } else {
             constrainIncomingViewNamed(cardBackView)
-            UIView.transition(from: cardFrontView, to: cardBackView, duration: 0.5, options: .transitionFlipFromLeft, completion: nil)
+            UIView.transition(from: cardFrontView,
+                              to: cardBackView,
+                              duration: flipDuration,
+                              options: .transitionFlipFromLeft,
+                              completion: nil)
             self.isUserInteractionEnabled = true
         }
     }
