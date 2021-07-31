@@ -35,22 +35,38 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     var isMatched: Bool = false {
         didSet {
-            if isMatched {
-                self.isUserInteractionEnabled = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + flipDuration) {
-                    let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-                    rotation.duration = 0.06
-                    rotation.repeatCount = 4
-                    rotation.autoreverses = true
-                    rotation.fromValue = NSNumber(value: self.rotationValue)
-                    rotation.toValue = NSNumber(value: -self.rotationValue)
-                    self.uiView.layer.add(rotation, forKey: "position")
-                }
-            }
+            successfulMatchShake()
         }
     }
 
     // MARK: - Functions
+
+    func failedMatchShake() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + flipDuration) {
+            let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+            rotation.duration = 0.06
+            rotation.repeatCount = 4
+            rotation.autoreverses = true
+            rotation.fromValue = NSNumber(value: self.rotationValue)
+            rotation.toValue = NSNumber(value: -self.rotationValue)
+            self.uiView.layer.add(rotation, forKey: "position")
+        }
+    }
+
+    func successfulMatchShake() {
+        if isMatched {
+            self.isUserInteractionEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + flipDuration) {
+                UIView.animate(withDuration: 0.75, animations: {
+                    self.uiView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                }) { (finished) in
+                    UIView.animate(withDuration: 0.75, animations: {
+                        self.uiView.transform = CGAffineTransform.identity
+                    })
+                }
+            }
+        }
+    }
 
     private func setUpView() {
         guard let imageName = cardType?.rawValue else {
