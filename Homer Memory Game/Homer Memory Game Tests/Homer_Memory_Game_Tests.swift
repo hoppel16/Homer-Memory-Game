@@ -36,4 +36,34 @@ class Homer_Memory_Game_Tests: XCTestCase {
         XCTAssertTrue(gameViewPresenter.uniqueCardCount == 28)
         XCTAssertTrue(returnedCards.count == 0)
     }
+
+    func testSuccessSound() throws {
+        gameViewPresenter.playSoundNamed("successSound")
+    }
+
+    func testFailureSound() throws {
+        gameViewPresenter.playSoundNamed("failureSound")
+    }
+
+    func testInvalidSound() throws {
+        gameViewPresenter.playSoundNamed("Invalid")
+    }
+
+    func testCardWasSelectedMatch() throws {
+        XCTAssertNil(gameViewPresenter.cardWasSelected(Cards.Bat))
+        guard let wasMatch = gameViewPresenter.cardWasSelected(Cards.Bat) else {
+            XCTFail()
+            return
+        }
+        XCTAssertTrue(wasMatch)
+    }
+
+    func testCardWasSelectedNoMatch() throws {
+        XCTAssertNil(gameViewPresenter.cardWasSelected(Cards.Bat))
+        guard let wasMatch = gameViewPresenter.cardWasSelected(Cards.Dragon) else {
+            XCTFail()
+            return
+        }
+        XCTAssertFalse(wasMatch)
+    }
 }
