@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
 
     @IBOutlet var backButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var scoreLabel: UILabel!
 
     // MARK: - Variables
 
@@ -26,6 +27,11 @@ class GameViewController: UIViewController {
     private var cardList = [Cards]()
     private var previouslySelectedIndex: IndexPath?
     private var sectionInsets: UIEdgeInsets?
+    private var currentMatches = 0 {
+        didSet {
+            updateView()
+        }
+    }
 
     // MARK: - View Lifecycle
 
@@ -48,6 +54,11 @@ class GameViewController: UIViewController {
             return
         }
         self.view.backgroundColor = UIColor(patternImage: backgroundArt)
+        updateView()
+    }
+
+    private func updateView() {
+        scoreLabel.text = "\(currentMatches) out of \(gameViewPresenter.uniqueCardCount) matches left!"
     }
 
     private func setCollectionView() {
@@ -81,6 +92,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case true:
             cell.isMatched.toggle()
             previousCell.isMatched.toggle()
+            currentMatches += 1
         case false:
             collectionView.isUserInteractionEnabled.toggle()
             cell.failedMatchShake()

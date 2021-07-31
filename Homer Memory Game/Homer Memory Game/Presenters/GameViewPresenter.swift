@@ -9,11 +9,13 @@ import Foundation
 
 class GameViewPresenter {
 
+    var uniqueCardCount = 0
+
     private var isGuessing = false
     private var previouslySelectedCard: Cards?
 
     func configureCardListWithGridSize(_ gridSize: (Int, Int)) -> [Cards] {
-        let uniqueCardCount = (gridSize.0 * gridSize.1)/2
+        uniqueCardCount = (gridSize.0 * gridSize.1)/2
 
         var cardTypes = Cards.allCases
         var cardList = [Cards]()

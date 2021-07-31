@@ -112,5 +112,4 @@ class CardCollectionViewCell: UICollectionViewCell {
             self.isUserInteractionEnabled = true
         }
     }
-
 }
