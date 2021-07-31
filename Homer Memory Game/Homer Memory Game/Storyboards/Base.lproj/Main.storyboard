@@ -135,14 +135,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6S-OV-isU">
+                                <rect key="frame" x="314" y="84.5" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="30" maxX="30" maxY="30"/>
+                                <state key="normal" backgroundImage="questionmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="howToPlayButton:" destination="TQA-gJ-prF" eventType="touchUpInside" id="2zh-Qo-f91"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UrU-fg-Kyo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QLo-wF-R5Z" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" constant="20" id="9fo-Hz-pjK"/>
+                            <constraint firstItem="V6S-OV-isU" firstAttribute="top" secondItem="UrU-fg-Kyo" secondAttribute="top" constant="40" id="G8a-5U-EAC"/>
                             <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0ET-VH-4UH" secondAttribute="trailing" constant="20" id="GWE-Hh-o0S"/>
                             <constraint firstItem="UrU-fg-Kyo" firstAttribute="bottom" secondItem="QLo-wF-R5Z" secondAttribute="bottom" constant="20" id="M7P-Dq-bWP"/>
                             <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" secondItem="QLo-wF-R5Z" secondAttribute="trailing" constant="20" id="QBN-Wt-Mkb"/>
+                            <constraint firstItem="UrU-fg-Kyo" firstAttribute="trailing" secondItem="V6S-OV-isU" secondAttribute="trailing" constant="40" id="VkJ-aH-HqB"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="top" secondItem="UrU-fg-Kyo" secondAttribute="top" constant="20" id="c03-yx-GQG"/>
                             <constraint firstItem="QLo-wF-R5Z" firstAttribute="top" secondItem="0ET-VH-4UH" secondAttribute="bottom" constant="20" id="frV-M1-LjB"/>
                             <constraint firstItem="0ET-VH-4UH" firstAttribute="leading" secondItem="UrU-fg-Kyo" secondAttribute="leading" constant="20" id="khu-8K-5ex"/>
@@ -161,6 +172,7 @@
     </scenes>
     <resources>
         <image name="backNavButton" width="95.5" height="82"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

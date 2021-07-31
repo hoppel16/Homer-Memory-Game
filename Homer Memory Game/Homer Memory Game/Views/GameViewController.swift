@@ -111,6 +111,10 @@ class GameViewController: UIViewController {
     @IBAction func clickBackButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
+
+    @IBAction func howToPlayButton(_ sender: Any) {
+        gameViewPresenter.playSoundNamed("voiceOverInstructions")
+    }
 }
 
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSource {

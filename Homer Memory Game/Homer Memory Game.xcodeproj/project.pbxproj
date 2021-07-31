@@ -13,6 +13,7 @@
 		2B431B9B26B57CB5005E84C1 /* successSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B431B9A26B57CB5005E84C1 /* successSound.mp3 */; };
 		2B431B9D26B57CBC005E84C1 /* failureSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B431B9C26B57CBC005E84C1 /* failureSound.mp3 */; };
 		2B431BA526B580CD005E84C1 /* Homer_Memory_Game_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B431BA426B580CD005E84C1 /* Homer_Memory_Game_Tests.swift */; };
+		2B431BAF26B5A671005E84C1 /* voiceOverInstructions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B431BAE26B5A671005E84C1 /* voiceOverInstructions.mp3 */; };
 		2B5C681826B2A1350068BB74 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */; };
 		2B5C681A26B2A1530068BB74 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681926B2A1530068BB74 /* Cards.swift */; };
 		2B5C681D26B2ED4B0068BB74 /* GameViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */; };
@@ -43,6 +44,7 @@
 		2B431BA226B580CD005E84C1 /* Homer Memory Game Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homer Memory Game Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B431BA426B580CD005E84C1 /* Homer_Memory_Game_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homer_Memory_Game_Tests.swift; sourceTree = "<group>"; };
 		2B431BA626B580CD005E84C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B431BAE26B5A671005E84C1 /* voiceOverInstructions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voiceOverInstructions.mp3; sourceTree = "<group>"; };
 		2B5C681726B2A1350068BB74 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B5C681926B2A1530068BB74 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		2B5C681C26B2ED4B0068BB74 /* GameViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPresenter.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		2B431B9926B57CA3005E84C1 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				2B431BAE26B5A671005E84C1 /* voiceOverInstructions.mp3 */,
 				2B431B9A26B57CB5005E84C1 /* successSound.mp3 */,
 				2B431B9C26B57CBC005E84C1 /* failureSound.mp3 */,
 			);
@@ -268,6 +271,7 @@
 			files = (
 				2B431B9B26B57CB5005E84C1 /* successSound.mp3 in Resources */,
 				2BDDBF8E26B294D20002AA7D /* LaunchScreen.storyboard in Resources */,
+				2B431BAF26B5A671005E84C1 /* voiceOverInstructions.mp3 in Resources */,
 				2BDDBF8B26B294D20002AA7D /* Assets.xcassets in Resources */,
 				2B431B9D26B57CBC005E84C1 /* failureSound.mp3 in Resources */,
 				2BDDBF8926B294D10002AA7D /* Main.storyboard in Resources */,
