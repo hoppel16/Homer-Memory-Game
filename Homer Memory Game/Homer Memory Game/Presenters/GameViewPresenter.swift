@@ -46,6 +46,8 @@ class GameViewPresenter {
     }
 
     func cardWasSelected(_ selectedCard: Cards) -> Bool? {
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+
         switch isGuessing {
         case true:
             isGuessing = false
