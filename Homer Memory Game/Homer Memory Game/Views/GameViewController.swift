@@ -117,7 +117,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             collectionView.isUserInteractionEnabled.toggle()
             cell.failedMatchShake()
             previousCell.failedMatchShake()
-            DispatchQueue.main.asyncAfter(deadline: .now() + failedMatchDelay) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + failedMatchDelay - 0.3) {
                 cell.isFlipped.toggle()
                 previousCell.isFlipped.toggle()
                 collectionView.isUserInteractionEnabled.toggle()

@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import AVFoundation
 
 class GameViewPresenter {
 
     var uniqueCardCount = 0
 
+    private var soundDelay = 0.4
     private var isGuessing = false
     private var previouslySelectedCard: Cards?
+    private var player: AVAudioPlayer?
 
     func configureCardListWithGridSize(_ gridSize: (Int, Int)) -> [Cards] {
         uniqueCardCount = (gridSize.0 * gridSize.1)/2
@@ -36,14 +39,35 @@ class GameViewPresenter {
         case true:
             isGuessing = false
             if selectedCard == previouslySelectedCard {
+                DispatchQueue.main.asyncAfter(deadline: .now() + soundDelay) {
+                    self.playSoundNamed("successSound")
+                }
                 return true
             } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + soundDelay) {
+                    self.playSoundNamed("failureSound")
+                }
                 return false
             }
         case false:
             isGuessing = true
             previouslySelectedCard = selectedCard
             return nil
+        }
+    }
+
+    func playSoundNamed(_ soundName: String, withExtension soundExtension: String = "mp3") {
+        guard let path = Bundle.main.path(forResource: soundName, ofType: soundExtension) else {
+            print("Failed to load sound with name: \(soundName)")
+            return
+        }
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
